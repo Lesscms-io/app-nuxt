@@ -160,6 +160,153 @@
   color: var(--lcms-color-white);
 }
 
+.lcms-button__link--light {
+  background-color: var(--lcms-color-light, #f8f9fa);
+  color: var(--lcms-color-dark, #343a40);
+}
+
+.lcms-button__link--dark {
+  background-color: var(--lcms-color-dark, #343a40);
+  color: var(--lcms-color-white);
+}
+
+/* Accent solid — kept in sync with app/vue/src/styles/widgets.css. Missing
+ * this rule makes <button class="lcms-button__link--accent"> fall through to
+ * the user-agent default (which looks beige/gold on macOS) instead of picking
+ * up the project's accent color. */
+.lcms-button__link--accent {
+  background-color: var(--lcms-color-accent, #FF6B35);
+  color: var(--lcms-color-white);
+}
+
+/* Solid hover — darken via overlay */
+.lcms-button__link--secondary:hover,
+.lcms-button__link--success:hover,
+.lcms-button__link--danger:hover,
+.lcms-button__link--warning:hover,
+.lcms-button__link--info:hover,
+.lcms-button__link--light:hover,
+.lcms-button__link--dark:hover,
+.lcms-button__link--accent:hover {
+  filter: brightness(0.9);
+}
+
+/* Outline variants */
+.lcms-button__link--outline,
+.lcms-button__link--outline-primary {
+  background-color: transparent;
+  color: var(--lcms-color-primary);
+  border-color: var(--lcms-color-primary);
+}
+
+.lcms-button__link--outline-secondary {
+  background-color: transparent;
+  color: var(--lcms-color-secondary);
+  border-color: var(--lcms-color-secondary);
+}
+
+.lcms-button__link--outline-success {
+  background-color: transparent;
+  color: var(--lcms-color-success);
+  border-color: var(--lcms-color-success);
+}
+
+.lcms-button__link--outline-danger {
+  background-color: transparent;
+  color: var(--lcms-color-danger);
+  border-color: var(--lcms-color-danger);
+}
+
+.lcms-button__link--outline-warning {
+  background-color: transparent;
+  color: var(--lcms-color-warning);
+  border-color: var(--lcms-color-warning);
+}
+
+.lcms-button__link--outline-info {
+  background-color: transparent;
+  color: var(--lcms-color-info);
+  border-color: var(--lcms-color-info);
+}
+
+.lcms-button__link--outline-light {
+  background-color: transparent;
+  color: var(--lcms-color-light, #f8f9fa);
+  border-color: var(--lcms-color-light, #f8f9fa);
+}
+
+.lcms-button__link--outline-dark {
+  background-color: transparent;
+  color: var(--lcms-color-dark, #343a40);
+  border-color: var(--lcms-color-dark, #343a40);
+}
+
+.lcms-button__link--outline-accent {
+  background-color: transparent;
+  color: var(--lcms-color-accent, #FF6B35);
+  border-color: var(--lcms-color-accent, #FF6B35);
+}
+
+/* Outline hover — fill with color */
+.lcms-button__link--outline:hover,
+.lcms-button__link--outline-primary:hover {
+  background-color: var(--lcms-color-primary);
+  color: var(--lcms-color-white);
+}
+
+.lcms-button__link--outline-secondary:hover {
+  background-color: var(--lcms-color-secondary);
+  color: var(--lcms-color-white);
+}
+
+.lcms-button__link--outline-success:hover {
+  background-color: var(--lcms-color-success);
+  color: var(--lcms-color-white);
+}
+
+.lcms-button__link--outline-danger:hover {
+  background-color: var(--lcms-color-danger);
+  color: var(--lcms-color-white);
+}
+
+.lcms-button__link--outline-warning:hover {
+  background-color: var(--lcms-color-warning);
+  color: var(--lcms-color-dark);
+}
+
+.lcms-button__link--outline-info:hover {
+  background-color: var(--lcms-color-info);
+  color: var(--lcms-color-white);
+}
+
+.lcms-button__link--outline-light:hover {
+  background-color: var(--lcms-color-light, #f8f9fa);
+  color: var(--lcms-color-dark, #343a40);
+}
+
+.lcms-button__link--outline-dark:hover {
+  background-color: var(--lcms-color-dark, #343a40);
+  color: var(--lcms-color-white);
+}
+
+.lcms-button__link--outline-accent:hover {
+  background-color: var(--lcms-color-accent, #FF6B35);
+  color: var(--lcms-color-white);
+}
+
+/* Link style */
+.lcms-button__link--link {
+  background-color: transparent;
+  color: var(--lcms-color-primary);
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.lcms-button__link--link:hover {
+  opacity: 0.8;
+}
+
 .lcms-button__link--size-sm {
   padding: var(--lcms-spacing-1) var(--lcms-spacing-3);
   font-size: var(--lcms-font-size-sm);
@@ -194,12 +341,12 @@
 .lcms-heading__text {
   /* Apply default sizes only to plain text headings */
 }
-.lcms-heading__text[data-level="1"] { font-size: var(--lcms-font-size-5xl); }
-.lcms-heading__text[data-level="2"] { font-size: var(--lcms-font-size-4xl); }
-.lcms-heading__text[data-level="3"] { font-size: var(--lcms-font-size-3xl); }
-.lcms-heading__text[data-level="4"] { font-size: var(--lcms-font-size-2xl); }
-.lcms-heading__text[data-level="5"] { font-size: var(--lcms-font-size-xl); }
-.lcms-heading__text[data-level="6"] { font-size: var(--lcms-font-size-lg); }
+.lcms-heading__text[data-level="1"] { font-size: var(--lcms-h1-font-size, var(--lcms-font-size-5xl)); font-weight: var(--lcms-h1-font-weight); color: var(--lcms-h1-color); line-height: var(--lcms-h1-line-height); }
+.lcms-heading__text[data-level="2"] { font-size: var(--lcms-h2-font-size, var(--lcms-font-size-4xl)); font-weight: var(--lcms-h2-font-weight); color: var(--lcms-h2-color); line-height: var(--lcms-h2-line-height); }
+.lcms-heading__text[data-level="3"] { font-size: var(--lcms-h3-font-size, var(--lcms-font-size-3xl)); font-weight: var(--lcms-h3-font-weight); color: var(--lcms-h3-color); line-height: var(--lcms-h3-line-height); }
+.lcms-heading__text[data-level="4"] { font-size: var(--lcms-h4-font-size, var(--lcms-font-size-2xl)); font-weight: var(--lcms-h4-font-weight); color: var(--lcms-h4-color); line-height: var(--lcms-h4-line-height); }
+.lcms-heading__text[data-level="5"] { font-size: var(--lcms-h5-font-size, var(--lcms-font-size-xl)); font-weight: var(--lcms-h5-font-weight); color: var(--lcms-h5-color); line-height: var(--lcms-h5-line-height); }
+.lcms-heading__text[data-level="6"] { font-size: var(--lcms-h6-font-size, var(--lcms-font-size-lg)); font-weight: var(--lcms-h6-font-weight); color: var(--lcms-h6-color); line-height: var(--lcms-h6-line-height); }
 
 /* HTML content from editor - reset h1-h6 to not have default browser/css sizes */
 .lcms-heading__html h1,
@@ -218,31 +365,28 @@
    ========================================================================== */
 
 .lcms-text {
-  font-family: var(--lcms-font-family);
-  font-size: var(--lcms-font-size-md);
-  line-height: var(--lcms-line-height-normal);
-  color: var(--lcms-color-gray-800);
+  font-family: var(--lcms-font-body);
+  font-size: var(--lcms-p-font-size);
+  font-weight: var(--lcms-p-font-weight);
+  line-height: var(--lcms-p-line-height);
+  color: var(--lcms-p-color);
 }
 
 .lcms-text p {
-  margin: 0 0 var(--lcms-spacing-4);
+  margin: 0 0 var(--lcms-p-margin-bottom);
 }
 
 .lcms-text p:last-child {
   margin-bottom: 0;
 }
 
-/* Headings inside text widget from editor - reset to allow inline styles */
-.lcms-text h1,
-.lcms-text h2,
-.lcms-text h3,
-.lcms-text h4,
-.lcms-text h5,
-.lcms-text h6 {
-  margin: 0 0 var(--lcms-spacing-4);
-  font-size: 1em; /* Reset to allow inner span to control size */
-  font-weight: inherit;
-}
+/* Headings inside text widget - use project CSS variables, inline styles override when present */
+.lcms-text h1 { font-size: var(--lcms-h1-font-size); font-weight: var(--lcms-h1-font-weight); color: var(--lcms-h1-color); line-height: var(--lcms-h1-line-height); margin: 0 0 var(--lcms-h1-margin-bottom); }
+.lcms-text h2 { font-size: var(--lcms-h2-font-size); font-weight: var(--lcms-h2-font-weight); color: var(--lcms-h2-color); line-height: var(--lcms-h2-line-height); margin: 0 0 var(--lcms-h2-margin-bottom); }
+.lcms-text h3 { font-size: var(--lcms-h3-font-size); font-weight: var(--lcms-h3-font-weight); color: var(--lcms-h3-color); line-height: var(--lcms-h3-line-height); margin: 0 0 var(--lcms-h3-margin-bottom); }
+.lcms-text h4 { font-size: var(--lcms-h4-font-size); font-weight: var(--lcms-h4-font-weight); color: var(--lcms-h4-color); line-height: var(--lcms-h4-line-height); margin: 0 0 var(--lcms-h4-margin-bottom); }
+.lcms-text h5 { font-size: var(--lcms-h5-font-size); font-weight: var(--lcms-h5-font-weight); color: var(--lcms-h5-color); line-height: var(--lcms-h5-line-height); margin: 0 0 var(--lcms-h5-margin-bottom); }
+.lcms-text h6 { font-size: var(--lcms-h6-font-size); font-weight: var(--lcms-h6-font-weight); color: var(--lcms-h6-color); line-height: var(--lcms-h6-line-height); margin: 0 0 var(--lcms-h6-margin-bottom); }
 
 .lcms-text h1:last-child,
 .lcms-text h2:last-child,
@@ -1846,11 +1990,23 @@
   /* Icon box */
   .lcms-icon-box {
     padding: var(--lcms-spacing-3);
+  }
+
+  /* Center text only for vertical layouts on mobile */
+  .lcms-icon-box--top,
+  .lcms-icon-box--bottom {
     text-align: center;
   }
 
-  .lcms-icon-box__icon {
+  .lcms-icon-box--top .lcms-icon-box__icon,
+  .lcms-icon-box--bottom .lcms-icon-box__icon {
     margin: 0 auto var(--lcms-spacing-3);
+  }
+
+  /* Horizontal layouts keep left alignment */
+  .lcms-icon-box--left,
+  .lcms-icon-box--right {
+    text-align: left;
   }
 
   /* Testimonial */

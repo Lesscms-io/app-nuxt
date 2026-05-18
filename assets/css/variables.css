@@ -129,45 +129,51 @@
 
 /* Headings */
 h1, .h1 {
-  font-size: 4.5rem;
-  font-weight: var(--lcms-font-weight-bold);
-  line-height: var(--lcms-line-height-tight);
-  margin: 0 0 var(--lcms-spacing-4);
+  font-size: var(--lcms-h1-font-size, 4.5rem);
+  font-weight: var(--lcms-h1-font-weight, var(--lcms-font-weight-bold));
+  color: var(--lcms-h1-color, inherit);
+  line-height: var(--lcms-h1-line-height, var(--lcms-line-height-tight));
+  margin: 0 0 var(--lcms-h1-margin-bottom, var(--lcms-spacing-4));
 }
 
 h2, .h2 {
-  font-size: 3.75rem;
-  font-weight: var(--lcms-font-weight-bold);
-  line-height: var(--lcms-line-height-tight);
-  margin: 0 0 var(--lcms-spacing-4);
+  font-size: var(--lcms-h2-font-size, 3.75rem);
+  font-weight: var(--lcms-h2-font-weight, var(--lcms-font-weight-bold));
+  color: var(--lcms-h2-color, inherit);
+  line-height: var(--lcms-h2-line-height, var(--lcms-line-height-tight));
+  margin: 0 0 var(--lcms-h2-margin-bottom, var(--lcms-spacing-4));
 }
 
 h3, .h3 {
-  font-size: 3rem;
-  font-weight: var(--lcms-font-weight-semibold);
-  line-height: var(--lcms-line-height-tight);
-  margin: 0 0 var(--lcms-spacing-3);
+  font-size: var(--lcms-h3-font-size, 3rem);
+  font-weight: var(--lcms-h3-font-weight, var(--lcms-font-weight-semibold));
+  color: var(--lcms-h3-color, inherit);
+  line-height: var(--lcms-h3-line-height, var(--lcms-line-height-tight));
+  margin: 0 0 var(--lcms-h3-margin-bottom, var(--lcms-spacing-3));
 }
 
 h4, .h4 {
-  font-size: 2.25rem;
-  font-weight: var(--lcms-font-weight-semibold);
-  line-height: var(--lcms-line-height-tight);
-  margin: 0 0 var(--lcms-spacing-3);
+  font-size: var(--lcms-h4-font-size, 2.25rem);
+  font-weight: var(--lcms-h4-font-weight, var(--lcms-font-weight-semibold));
+  color: var(--lcms-h4-color, inherit);
+  line-height: var(--lcms-h4-line-height, var(--lcms-line-height-tight));
+  margin: 0 0 var(--lcms-h4-margin-bottom, var(--lcms-spacing-3));
 }
 
 h5, .h5 {
-  font-size: 1.875rem;
-  font-weight: var(--lcms-font-weight-medium);
-  line-height: var(--lcms-line-height-normal);
-  margin: 0 0 var(--lcms-spacing-2);
+  font-size: var(--lcms-h5-font-size, 1.875rem);
+  font-weight: var(--lcms-h5-font-weight, var(--lcms-font-weight-medium));
+  color: var(--lcms-h5-color, inherit);
+  line-height: var(--lcms-h5-line-height, var(--lcms-line-height-normal));
+  margin: 0 0 var(--lcms-h5-margin-bottom, var(--lcms-spacing-2));
 }
 
 h6, .h6 {
-  font-size: 1.5rem;
-  font-weight: var(--lcms-font-weight-medium);
-  line-height: var(--lcms-line-height-normal);
-  margin: 0 0 var(--lcms-spacing-2);
+  font-size: var(--lcms-h6-font-size, 1.5rem);
+  font-weight: var(--lcms-h6-font-weight, var(--lcms-font-weight-medium));
+  color: var(--lcms-h6-color, inherit);
+  line-height: var(--lcms-h6-line-height, var(--lcms-line-height-normal));
+  margin: 0 0 var(--lcms-h6-margin-bottom, var(--lcms-spacing-2));
 }
 
 /* Responsive headings - tablet */

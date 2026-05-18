@@ -23,6 +23,8 @@ const props = defineProps<Props>()
 const items = computed(() => props.data?.items || [])
 const size = computed(() => props.data?.size || 'md')
 const style = computed(() => props.data?.style || 'default')
+const colorMode = computed(() => props.data?.color_mode || props.data?.colorMode || 'brand')
+const customColor = computed(() => props.data?.icon_color || props.data?.iconColor || '')
 
 // Platform to FontAwesome icon mapping
 const platformIcons: Record<string, string> = {
@@ -66,7 +68,20 @@ function getIcon(platform: string): string {
   return platformIcons[platform.toLowerCase()] || 'fa-solid fa-link'
 }
 
+function resolveColorValue(val: string): string {
+  if (!val) return ''
+  if (val.startsWith('var:')) {
+    const parts = val.split(':')
+    const code = parts[1]
+    const opacity = parts.length >= 3 ? parseInt(parts[2]) : 100
+    if (opacity < 100) return `color-mix(in srgb, var(--lcms-color-${code}) ${opacity}%, transparent)`
+    return `var(--lcms-color-${code})`
+  }
+  return val
+}
+
 function getColor(platform: string): string {
+  if (colorMode.value === 'custom' && customColor.value) return resolveColorValue(customColor.value)
   return platformColors[platform.toLowerCase()] || '#6c757d'
 }
 </script>
