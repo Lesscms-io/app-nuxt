@@ -9,6 +9,7 @@
 
 import { getWidgetComponent, isWidgetSupported } from '~/components/widgets'
 import type { Widget, WidgetSettings } from '~/types/api'
+import { buildGradientCss } from '~/utils/gradient'
 
 interface Props {
   widget: Widget
@@ -55,25 +56,27 @@ const widgetStyle = computed(() => {
     style.backgroundRepeat = 'no-repeat'
   }
 
-  // Gradient (API returns { gradient: { type, colorStart, colorEnd, angle } })
+  // Gradient (API returns { gradient: { type, colorStart, colorEnd, angle?, position?, intensity? } })
   if (s.gradient && s.gradient.colorStart && s.gradient.colorEnd) {
-    const type = s.gradient.type || 'linear'
-    const angle = s.gradient.angle ?? 180
-    if (type === 'linear') {
-      style.background = `linear-gradient(${angle}deg, ${s.gradient.colorStart}, ${s.gradient.colorEnd})`
-    } else {
-      style.background = `radial-gradient(circle, ${s.gradient.colorStart}, ${s.gradient.colorEnd})`
-    }
+    style.background = buildGradientCss(
+      s.gradient.type || 'linear',
+      s.gradient.angle ?? 180,
+      s.gradient.position || 'center',
+      s.gradient.intensity ?? 0,
+      s.gradient.colorStart,
+      s.gradient.colorEnd
+    )
   }
   // Also support legacy format (useGradient)
   else if (s.useGradient && s.gradientColorStart && s.gradientColorEnd) {
-    const type = s.gradientType || 'linear'
-    const angle = s.gradientAngle ?? 180
-    if (type === 'linear') {
-      style.background = `linear-gradient(${angle}deg, ${s.gradientColorStart}, ${s.gradientColorEnd})`
-    } else {
-      style.background = `radial-gradient(circle, ${s.gradientColorStart}, ${s.gradientColorEnd})`
-    }
+    style.background = buildGradientCss(
+      s.gradientType || 'linear',
+      s.gradientAngle ?? 180,
+      s.gradientPosition || 'center',
+      s.gradientIntensity ?? 0,
+      s.gradientColorStart,
+      s.gradientColorEnd
+    )
   }
 
   // Padding

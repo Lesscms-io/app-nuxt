@@ -53,6 +53,8 @@ export interface GradientSettings {
   colorStart?: string
   colorEnd?: string
   angle?: number
+  position?: string
+  intensity?: number
 }
 
 export interface BaseSettings {
@@ -73,6 +75,8 @@ export interface BaseSettings {
   useGradient?: boolean
   gradientType?: 'linear' | 'radial'
   gradientAngle?: number
+  gradientPosition?: string
+  gradientIntensity?: number
   gradientColorStart?: string
   gradientColorEnd?: string
 
